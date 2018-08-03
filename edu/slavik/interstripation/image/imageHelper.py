@@ -87,3 +87,19 @@ def createRandomRange(leftValue, rightValue, maxWidth):
     width = randint(1, maxWidth)
     left = randint(leftValue, rightValue - maxWidth)
     return range(left, left + width)
+
+
+def compareImages(expected, actual):
+    """
+    Compare two images
+
+    :param expected: expected image data
+    :param actual:   actual image data
+    :return: matrix of errors
+    """
+    res = abs(expected - actual)
+    for i in range(res.shape[0]):
+        for j in range(res.shape[1]):
+            if res[i, j] == 0:
+                res[i, j] = -1
+    return res

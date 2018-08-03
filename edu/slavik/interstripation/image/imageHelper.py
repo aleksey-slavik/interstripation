@@ -34,8 +34,21 @@ def saveImageData(data, fileName: str, imageFormat='PNG'):
     imageData.save('../resources/' + fileName, imageFormat)
 
 
-# def removeStripes(image, countV, countH, maxWidth, maxHeight):
-#    for i in range(image.shape[0]):
+def removeStripes(imageData, countV, countH, maxWidth, maxHeight):
+    """
+    Delete horizontal and vertical stripes from image
+
+    :param imageData: initial image data
+    :param countV:    count of vertical stripes
+    :param countH:    count of horizontal stripes
+    :param maxWidth:  maximum value of width of vertical stripes
+    :param maxHeight: maximum value of height of horizontal stripes
+    :return: image with removed stripes
+    """
+    imageData = removeVerticalStripes(imageData, countV, maxWidth)
+    imageData = removeHorizontalStripes(imageData, countH, maxHeight)
+    return imageData
+
 
 def removeVerticalStripes(imageData, count, maxWidth):
     """

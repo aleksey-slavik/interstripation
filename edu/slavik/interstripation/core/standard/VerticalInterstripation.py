@@ -1,4 +1,3 @@
-from edu.slavik.interstripation.core.Interstripation import Interstripation
 """
 Implementation of Interstripation for restore vertical stripes using standard interstripation
 
@@ -6,7 +5,7 @@ Implementation of Interstripation for restore vertical stripes using standard in
 """
 
 
-class VerticalInterstripation(Interstripation):
+class VerticalInterstripation:
 
     @staticmethod
     def restore(surface, stripe):

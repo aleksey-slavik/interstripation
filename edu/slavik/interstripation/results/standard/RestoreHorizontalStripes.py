@@ -11,7 +11,7 @@ Contains example of restore vertical stripes using standard horizontal interstri
 surface = LinearEdgesSurface('../../resources/test.jpeg', 0, 5, 5, 5)
 surface.save('../../resources/standard/corrupted/horizontal.png')
 
-# restore vertical stripes
+# restore horizontal stripes
 for i in range(len(surface.horizontalStripes)):
     HorizontalInterstripation.restore(surface, surface.horizontalStripes[i])
 

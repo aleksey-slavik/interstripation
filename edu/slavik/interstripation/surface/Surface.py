@@ -19,7 +19,7 @@ class Surface:
         path: str
             path to source data
         """
-        imageData = Image.open('../resources/' + path)
+        imageData = Image.open(path)
         grayscale = imageData.convert('L')
         self.matrix = numpy.array(grayscale)
 
@@ -35,7 +35,7 @@ class Surface:
             file format
         """
         imageData = Image.fromarray(self.matrix, 'L')
-        imageData.save('../resources/' + fileName, imageFormat)
+        imageData.save(fileName, imageFormat)
 
     def compare(self, other):
         """
@@ -51,11 +51,14 @@ class Surface:
         res: Surface
             surface of difference between surfaces
         """
-        res = abs(self.matrix - other.matrix)
-        for i in range(res.shape[0]):
-            for j in range(res.shape[1]):
-                if res[i, j] == 0:
-                    res[i, j] = -1
+        res = self
+        res.matrix = abs(self.matrix - other.matrix)
+
+        for i in range(res.matrix.shape[0]):
+            for j in range(res.matrix.shape[1]):
+                if res.matrix[i, j] == 0:
+                    res.matrix[i, j] = -1
+
         return res
 
     def __repr__(self):

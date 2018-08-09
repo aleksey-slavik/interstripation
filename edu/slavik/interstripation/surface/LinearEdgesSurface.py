@@ -94,7 +94,3 @@ class LinearEdgesSurface(Surface):
             stripes.append(HorizontalStripe(left, left + randint(1, maxHeight)))
 
         return stripes
-
-
-surface = LinearEdgesSurface('test.jpeg', 5, 0, 5, 5)
-surface.save('res.png')

@@ -1,12 +1,12 @@
-from edu.slavik.interstripation.stripe.Stripe import Stripe
+from edu.slavik.interstripation.defect.Stripe import Stripe
 """
-Implementation of Stripe class for vertical stripes, edges of which are parallel to ordinate axis 
+Implementation of Stripe class for horizontal stripes, edges of which are parallel to abscissa axis 
 
 @author: oleksii.slavik 
 """
 
 
-class VerticalStripe(Stripe):
+class HorizontalStripe(Stripe):
 
     def __init__(self, startAt, endAt):
         """
@@ -15,16 +15,16 @@ class VerticalStripe(Stripe):
         Parameters
         ----------
         startAt: int
-            top edge of stripe
+            left edge of defect
         endAt: int
-            bottom edge of stripe
+            right edge of defect
         """
         self.startAt = startAt
         self.endAt = endAt
 
     def removeStripe(self, surface):
         """
-        Remove current vertical stripe from surface
+        Remove current horizontal defect from surface
 
         Parameters
         ----------
@@ -34,12 +34,12 @@ class VerticalStripe(Stripe):
         Return
         ------
         surface: Surface
-            surface without current vertical stripe
+            surface without current horizontal defect
         """
-        height = surface.matrix.shape[1]
+        width = surface.matrix.shape[0]
 
-        for i in range(height):
-            for j in range(self.startAt, self.endAt):
+        for i in range(self.startAt, self.endAt):
+            for j in range(width):
                 surface.matrix[i, j] = -1
 
         return surface

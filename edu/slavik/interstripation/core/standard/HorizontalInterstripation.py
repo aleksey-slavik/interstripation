@@ -10,14 +10,14 @@ class HorizontalInterstripation:
     @staticmethod
     def restore(surface, stripe):
         """
-        Restore given horizontal stripe data in given surface
+        Restore given horizontal defect data in given surface
 
         Parameters
         ----------
         surface: Surface
             surface data
         stripe: Stripe
-            stripe data
+            defect data
         """
         startAt = stripe.startAt - 1
         endAt = stripe.endAt

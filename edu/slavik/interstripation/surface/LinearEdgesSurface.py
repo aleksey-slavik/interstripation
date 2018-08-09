@@ -1,8 +1,8 @@
 from random import randint
 from edu.slavik.interstripation.surface.Surface import Surface
-from edu.slavik.interstripation.stripe.Region import Region
-from edu.slavik.interstripation.stripe.VerticalStripe import VerticalStripe
-from edu.slavik.interstripation.stripe.HorizontalStripe import HorizontalStripe
+from edu.slavik.interstripation.defect.Region import Region
+from edu.slavik.interstripation.defect.VerticalStripe import VerticalStripe
+from edu.slavik.interstripation.defect.HorizontalStripe import HorizontalStripe
 """
 Implementation of Surface class for surfaces with stripes, edges of which are are parallel to axises
 

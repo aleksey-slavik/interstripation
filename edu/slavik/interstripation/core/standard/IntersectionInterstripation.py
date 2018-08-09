@@ -19,9 +19,9 @@ class IntersectionInterstripation:
         surface: Surface
             surface data
         vertical: Stripe
-            vertical stripe data
+            vertical defect data
         horizontal: Stripe
-            horizontal stripe data
+            horizontal defect data
         """
         HorizontalInterstripation.restore(surface, horizontal)
         VerticalInterstripation.restore(surface, vertical)

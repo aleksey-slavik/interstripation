@@ -1,4 +1,9 @@
 import abc
+"""
+Contains method for restore surface
+
+@author: oleksii.slavik
+"""
 
 
 class Interstripation:

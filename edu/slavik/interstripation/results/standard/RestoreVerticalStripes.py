@@ -1,7 +1,11 @@
 from edu.slavik.interstripation.surface.Surface import Surface
 from edu.slavik.interstripation.surface.LinearEdgesSurface import LinearEdgesSurface
 from edu.slavik.interstripation.core.standard.VerticalInterstripation import VerticalInterstripation
+"""
+Contains example of restore vertical stripes using standard vertical interstripation
 
+@author: oleksii.slavik
+"""
 
 # remove vertical stripes
 surface = LinearEdgesSurface('../../resources/test.jpeg', 5, 0, 5, 5)

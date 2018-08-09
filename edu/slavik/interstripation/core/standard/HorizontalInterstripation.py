@@ -1,5 +1,5 @@
 """
-Implementation of Interstripation for restore horizontal stripes using standard interstripation
+Contains method for restore horizontal stripes using standard interstripation
 
 @author: oleksii.slavik
 """

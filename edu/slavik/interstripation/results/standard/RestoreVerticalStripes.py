@@ -9,6 +9,7 @@ Contains example of restore vertical stripes using standard vertical interstripa
 
 # remove vertical stripes
 surface = LinearEdgesSurface('../../resources/test.jpeg', 5, 0, 5, 5)
+surface.removeStripes()
 surface.save('../../resources/standard/corrupted/vertical.png')
 
 # restore vertical stripes

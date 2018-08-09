@@ -1,11 +1,27 @@
 from edu.slavik.interstripation.core.standard.HorizontalInterstripation import HorizontalInterstripation
 from edu.slavik.interstripation.core.standard.VerticalInterstripation import VerticalInterstripation
-from edu.slavik.interstripation.core.standard.UnionInterstripation import UnionInterstripation
+"""
+Contains method for restore intersected stripes using standard interstripation
+
+@author: oleksii.slavik
+"""
 
 
 class IntersectionInterstripation:
 
     @staticmethod
     def restore(surface, vertical, horizontal):
+        """
+        Restore given stripes data in given surface
+
+        Parameters
+        ----------
+        surface: Surface
+            surface data
+        vertical: Stripe
+            vertical stripe data
+        horizontal: Stripe
+            horizontal stripe data
+        """
         HorizontalInterstripation.restore(surface, horizontal)
         VerticalInterstripation.restore(surface, vertical)

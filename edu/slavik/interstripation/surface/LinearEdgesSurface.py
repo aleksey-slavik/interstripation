@@ -1,5 +1,6 @@
 from random import randint
 from edu.slavik.interstripation.surface.Surface import Surface
+from edu.slavik.interstripation.stripe.Region import Region
 from edu.slavik.interstripation.stripe.VerticalStripe import VerticalStripe
 from edu.slavik.interstripation.stripe.HorizontalStripe import HorizontalStripe
 """
@@ -13,7 +14,7 @@ class LinearEdgesSurface(Surface):
 
     def __init__(self, path, countV, countH, maxWidth, maxHeight):
         """
-        Create surface from source and remove stripes
+        Create surface from source
 
         Parameters
         ----------
@@ -31,7 +32,7 @@ class LinearEdgesSurface(Surface):
         super().__init__(path)
         self.verticalStripes = self.createVerticalStripesList(countV, maxWidth)
         self.horizontalStripes = self.createHorizontalStripesList(countH, maxHeight)
-        self.removeStripes()
+        self.regions = []
 
     def removeStripes(self):
         """
@@ -42,6 +43,16 @@ class LinearEdgesSurface(Surface):
 
         for i in range(len(self.horizontalStripes)):
             self.horizontalStripes[i].removeStripe(self)
+
+    def removeRegions(self):
+        """
+        Remove regions from surface
+        """
+        for i in range(len(self.verticalStripes)):
+            for j in range(len(self.horizontalStripes)):
+                region = Region(self.verticalStripes[i], self.horizontalStripes[j])
+                self.regions.append(region)
+                region.removeRegion(self)
 
     def createVerticalStripesList(self, count, maxWidth):
         """

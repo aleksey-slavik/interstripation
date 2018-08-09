@@ -2,13 +2,14 @@ from edu.slavik.interstripation.surface.Surface import Surface
 from edu.slavik.interstripation.surface.LinearEdgesSurface import LinearEdgesSurface
 from edu.slavik.interstripation.core.standard.IntersectionInterstripation import IntersectionInterstripation
 """
-Contains example of restore vertical stripes using standard vertical interstripation
+Contains example of restore intersected stripes using standard interstripation
 
 @author: oleksii.slavik
 """
 
 # remove stripes
 surface = LinearEdgesSurface('../../resources/test.jpeg', 5, 5, 5, 5)
+surface.removeStripes()
 surface.save('../../resources/standard/corrupted/intersection.png')
 
 # restore vertical stripes

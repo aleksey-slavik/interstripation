@@ -12,3 +12,6 @@ class Region:
                 surface.matrix[i, j] = -1
 
         return surface
+
+    def __repr__(self):
+        return str(self.__dict__)

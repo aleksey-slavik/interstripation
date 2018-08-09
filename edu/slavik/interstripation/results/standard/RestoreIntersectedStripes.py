@@ -12,7 +12,7 @@ surface = LinearEdgesSurface('../../resources/test.jpeg', 5, 5, 5, 5)
 surface.removeStripes()
 surface.save('../../resources/standard/corrupted/intersection.png')
 
-# restore vertical stripes
+# restore stripes
 for i in range(len(surface.verticalStripes)):
     for j in range(len(surface.horizontalStripes)):
         IntersectionInterstripation.restore(surface, surface.verticalStripes[i], surface.horizontalStripes[j])

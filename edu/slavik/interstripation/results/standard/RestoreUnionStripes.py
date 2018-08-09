@@ -2,17 +2,17 @@ from edu.slavik.interstripation.surface.Surface import Surface
 from edu.slavik.interstripation.surface.LinearEdgesSurface import LinearEdgesSurface
 from edu.slavik.interstripation.core.standard.UnionInterstripation import UnionInterstripation
 """
-Contains example of restore intersected stripes using standard interstripation
+Contains example of restore union stripes using standard interstripation
 
 @author: oleksii.slavik
 """
 
 # remove stripes
-surface = LinearEdgesSurface('../../resources/test.jpeg', 5, 5, 5, 5)
+surface = LinearEdgesSurface('../../resources/test.jpeg', 5, 5, 10, 10)
 surface.removeRegions()
 surface.save('../../resources/standard/corrupted/union.png')
 
-# restore vertical stripes
+# restore stripes
 for i in range(len(surface.regions)):
     UnionInterstripation.restore(surface, surface.regions[i])
 

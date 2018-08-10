@@ -10,7 +10,7 @@ class VerticalInterstripation:
     @staticmethod
     def restore(surface, stripe):
         """
-        Restore given vertical defect data in given surface
+        Restore given vertical stripe data in given surface
 
         Parameters
         ----------

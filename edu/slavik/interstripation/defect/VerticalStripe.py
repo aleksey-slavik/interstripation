@@ -24,7 +24,7 @@ class VerticalStripe(Stripe):
 
     def removeStripe(self, surface):
         """
-        Remove current vertical defect from surface
+        Remove current vertical stripe from surface
 
         Parameters
         ----------

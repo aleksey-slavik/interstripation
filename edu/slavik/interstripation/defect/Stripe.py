@@ -1,6 +1,6 @@
 import abc
 """
-Abstract defect object
+Abstract stripe object
 Root class for all stripes
 
 @author: oleksii.slavik

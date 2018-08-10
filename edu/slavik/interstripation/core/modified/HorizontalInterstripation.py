@@ -34,7 +34,7 @@ def leftDelta(surface, stripe, x, y):
     r = distance(x, stripe)
     res = 0
 
-    for i in range(r):
+    for i in range(r + 1):
         res += surface.matrix[stripe.startAt - i, y]
 
     return res / (r + 1)
@@ -44,7 +44,7 @@ def rightDelta(surface, stripe, x, y):
     r = distance(x, stripe)
     res = 0
 
-    for i in range(-r, r):
+    for i in range(r + 1):
         res += surface.matrix[stripe.endAt + i, y]
 
     return res / (r + 1)

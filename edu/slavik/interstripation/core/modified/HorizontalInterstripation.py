@@ -5,25 +5,46 @@ Contains method for restore horizontal stripes using modified interstripation
 """
 
 
-class HorizontalInterstripation:
+def restore(surface, stripe):
+    """
+    Restore given horizontal stripe data in given surface
 
-    @staticmethod
-    def restore(surface, stripe):
-        """
-        Restore given horizontal stripe data in given surface
+    Parameters
+    ----------
+    surface: Surface
+        surface data
+    stripe: Stripe
+        defect data
+    """
+    startAt = stripe.startAt - 1
+    endAt = stripe.endAt
 
-        Parameters
-        ----------
-        surface: Surface
-            surface data
-        stripe: Stripe
-            defect data
-        """
-        startAt = stripe.startAt - 1
-        endAt = stripe.endAt
+    for i in range(startAt, endAt):
+        for j in range(surface.matrix.shape[1]):
+            surface.matrix[i, j] = \
+                (i - endAt) / (startAt - endAt) * rightDelta(surface, stripe, i, j) - \
+                (i - startAt) / (startAt - endAt) * leftDelta(surface, stripe, i, j)
 
-        for i in range(startAt, endAt):
-            for j in range(surface.matrix.shape[1]):
-                surface.matrix[i, j] = \
-                    (i - endAt) * surface.matrix[startAt, j] / (startAt - endAt) - \
-                    (i - startAt) * surface.matrix[endAt, j] / (startAt - endAt)
+
+def distance(value, stripe):
+    return min(value - stripe.startAt + 1, stripe.endAt - value)
+
+
+def leftDelta(surface, stripe, x, y):
+    r = distance(x, stripe)
+    res = 0
+
+    for i in range(r):
+        res += surface.matrix[stripe.startAt - i, y]
+
+    return res / (r + 1)
+
+
+def rightDelta(surface, stripe, x, y):
+    r = distance(x, stripe)
+    res = 0
+
+    for i in range(-r, r):
+        res += surface.matrix[stripe.endAt + i, y]
+
+    return res / (r + 1)
